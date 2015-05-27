@@ -3,3 +3,7 @@
 	**********
 	# Añadido htaccess y modificado config.php para eliminar "index.php" de la URL.
 	# Añadidas traducciones de sistema (español y portugués)
+
+	27/05/2015
+	**********
+	# Definir entornos en "index.php" y crear las carpetas correspondientes dentro de "application/config"
