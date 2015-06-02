@@ -20,6 +20,9 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		/*$this->load->library('encryption');	
+		$key = bin2hex($this->encryption->create_key(16));
+		echo "KEY: " . $key;*/
 		$this->load->view('welcome_message');
 	}
 }
