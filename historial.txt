@@ -11,3 +11,7 @@
 	02/06/2015
 	**********
 	# Configurar "encryption_key"
+
+	10/06/2015
+	**********
+	# Activar protección contra CSRF
