@@ -15,3 +15,8 @@
 	10/06/2015
 	**********
 	# Activar protección contra CSRF
+
+	16/06/2015
+	**********
+	# Renombradas carpetas "system" y "application"
+
