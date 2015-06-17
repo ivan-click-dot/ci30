@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `companies` (
   UNIQUE KEY `codigo` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla eye01.companies: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla eye01.companies: ~2 rows (aproximadamente)
 DELETE FROM `companies`;
 /*!40000 ALTER TABLE `companies` DISABLE KEYS */;
 INSERT INTO `companies` (`id`, `name`, `active`) VALUES
@@ -43,14 +43,15 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `name` varchar(20) NOT NULL,
   `description` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla eye01.groups: ~2 rows (aproximadamente)
 DELETE FROM `groups`;
 /*!40000 ALTER TABLE `groups` DISABLE KEYS */;
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 	(1, 'admin', 'Administrator'),
-	(2, 'members', 'General User');
+	(2, 'members', 'General User'),
+	(3, 'prueba', 'lalalalala');
 /*!40000 ALTER TABLE `groups` ENABLE KEYS */;
 
 
@@ -94,13 +95,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`),
   KEY `FK_users_companies` (`id_company`),
   CONSTRAINT `FK_users_companies` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla eye01.users: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla eye01.users: ~0 rows (aproximadamente)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`, `first_name`, `last_name`, `company`, `phone`, `id_company`) VALUES
-	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1268889823, 1, 'Admin', 'istrator', 'ADMIN', '0', 001);
+	(1, '127.0.0.1', 'administrator', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '', 'admin@admin.com', '', NULL, NULL, NULL, 1268889823, 1434542900, 1, 'Admin', 'istrator', 'ADMIN', '0', 001);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
