@@ -20,3 +20,8 @@
 	**********
 	# Renombradas carpetas "system" y "application"
 
+	17/06/2015
+	**********
+	# Integración Ion_Auth_2
+	# Definir Base, Admin y Public Controllers
+
