@@ -25,3 +25,8 @@
 	# Integración Ion_Auth_2
 	# Definir Base, Admin y Public Controllers
 
+	18/06/2015
+	**********
+	# En "config/autoload.php" cargar el helper "url"
+	# Crear carpeta "assets" para alojar los ficheros js y los css.
+

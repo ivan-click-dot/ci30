@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Welcome</title>
 
 	<style type="text/css">
 
@@ -64,6 +64,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+
+	<script src="<?php echo base_url(); ?>assets/funciones.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/style.css" type="text/css" media="all" />
+
 </head>
 <body>
 
