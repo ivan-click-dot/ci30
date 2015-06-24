@@ -30,3 +30,7 @@
 	# En "config/autoload.php" cargar el helper "url"
 	# Crear carpeta "assets" para alojar los ficheros js y los css.
 
+	24/06/2015
+	**********
+	# Parametrizar Ion_Auth_2. Eliminar campos sobrantes.
+

@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `companies` (
   `active` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `codigo` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla eye02.companies: ~3 rows (aproximadamente)
 DELETE FROM `companies`;
@@ -67,24 +67,25 @@ CREATE TABLE IF NOT EXISTS `users` (
   `last_name` varchar(300) NOT NULL,
   `nif` varchar(30) NOT NULL,
   `email` varchar(150) DEFAULT NULL,
-  `last_login` datetime DEFAULT NULL,
   `username` varchar(40) NOT NULL,
   `password` varchar(80) NOT NULL,
+  `last_login` datetime DEFAULT NULL,
   `salt` varchar(255) DEFAULT NULL,
+  `remember_code` varchar(50) DEFAULT NULL,
   `activation_code` varchar(40) DEFAULT NULL,
   `active` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_user`,`id_company`),
   UNIQUE KEY `id` (`id`),
   KEY `FK_usuarios_empresas` (`id_company`),
   CONSTRAINT `FK_usuarios_empresas` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla eye02.users: ~2 rows (aproximadamente)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `id_user`, `id_company`, `first_name`, `last_name`, `nif`, `email`, `last_login`, `username`, `password`, `salt`, `activation_code`, `active`) VALUES
-	(4, 000001, 001, 'Pepe', 'Gáfez', '11223344B', 'pepe@company.com', '0000-00-00 00:00:00', 'pepe', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', NULL, NULL, 1),
-	(5, 000002, 001, 'Luis', 'Plómez', '22334455Y', 'luis@company.com', NULL, 'luis', 'plomez', NULL, NULL, 1);
+INSERT INTO `users` (`id`, `id_user`, `id_company`, `first_name`, `last_name`, `nif`, `email`, `username`, `password`, `last_login`, `salt`, `remember_code`, `activation_code`, `active`) VALUES
+	(4, 000001, 001, 'Pepe', 'Gáfez', '11223344B', 'pepe@company.com', 'pepe', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', '0000-00-00 00:00:00', NULL, 'h9TFdlu8F8vYlHQZhMZfle', NULL, 1),
+	(5, 000002, 001, 'Luis', 'Plómez', '22334455Y', 'luis@company.com', 'luis', '$2y$08$1WP9fOv.8ahDstSe21BqmO5L8JPA6LQeWgRduqu60Y8ojLPdovnfa', '0000-00-00 00:00:00', NULL, NULL, NULL, 1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
@@ -99,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
   CONSTRAINT `FK_usuarios_grupos_usuarios` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla eye02.users_groups: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla eye02.users_groups: ~1 rows (aproximadamente)
 DELETE FROM `users_groups`;
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
 INSERT INTO `users_groups` (`id_user`, `id_group`) VALUES
