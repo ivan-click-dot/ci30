@@ -90,6 +90,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>-->
 
 Texto de prueba para probar
+<?php
+
+	//string date ( string $format [, int $timestamp = time() ] ) 
+	$this->load->helper('date');
+
+	echo "<br>Fecha: " . date("d/m/Y H:i:s", 1435221351);
+	echo "<br>Fecha actual: " . date("d/m/Y H:i:s", time());
+	echo "<br>Fecha actual 2: " . unix_to_human(time());
+
+?>
 
 </body>
 </html>
