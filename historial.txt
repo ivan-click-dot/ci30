@@ -38,3 +38,6 @@
 	**********
 	# Parametrizar Ion_Auth_2. Eliminar campos sobrantes.
 
+	30/06/2015
+	# Añadido dashboard
+
