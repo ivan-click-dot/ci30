@@ -39,5 +39,9 @@
 	# Parametrizar Ion_Auth_2. Eliminar campos sobrantes.
 
 	30/06/2015
-	# Añadido dashboard
+	**********
+	# Añadida página "dashboard" adonde se redirige una vez logueado el usuario.
 
+	01/07/2015
+	**********
+	# Configurada ruta de assets y resources.

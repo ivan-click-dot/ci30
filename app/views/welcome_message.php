@@ -65,8 +65,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 	</style>
 
-	<script src="<?php echo base_url(); ?>assets/funciones.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/style.css" type="text/css" media="all" />
+	<script src="<?php echo base_url(ASSETS_PUBLIC_PATH); ?>/funciones.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="<?php echo base_url(ASSETS_PUBLIC_PATH); ?>/style.css" type="text/css" media="all" />
 
 </head>
 <body>
@@ -97,9 +97,12 @@ Texto de prueba para probar
 
 	echo "<br>Fecha: " . date("d/m/Y H:i:s", 1435221351);
 	echo "<br>Fecha actual: " . date("d/m/Y H:i:s", time());
-	echo "<br>Fecha actual 2: " . unix_to_human(time());
+	echo "<br>Fecha actual 2: " . unix_to_human(time());	
 
 ?>
+<br>
+<a href="<?php echo base_url(RESOURCES_PATH); ?>/prueba.txt">fichero</a>
+
 
 </body>
 </html>
