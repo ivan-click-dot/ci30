@@ -91,6 +91,6 @@ define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 |--------------------------------------------------------------------------
 |
 */
-define("RESOURCES_PATH", "resources");
 define("ASSETS_ADMIN_PATH", "assets/admin");
 define("ASSETS_PUBLIC_PATH", "assets/public");
+define("RESOURCES_PATH", "resources");
