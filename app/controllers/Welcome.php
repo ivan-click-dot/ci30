@@ -29,6 +29,7 @@ class Welcome extends Public_Controller
 		/*$this->load->library('encryption');	
 		$key = bin2hex($this->encryption->create_key(16));
 		echo "KEY: " . $key;*/
+		$this->load->helper('date');
 		$this->load->view('welcome_message');
 	}
 }

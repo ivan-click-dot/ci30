@@ -45,3 +45,7 @@
 	01/07/2015
 	**********
 	# Configurada ruta de assets y resources.
+
+	02/07/2015
+	**********
+	# Creado helper "site" para almacenar funciones generales propias que puedan ser útiles.
