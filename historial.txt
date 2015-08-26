@@ -49,3 +49,8 @@
 	02/07/2015
 	**********
 	# Creado helper "site" para almacenar funciones generales propias que puedan ser útiles.
+
+	26/08/2015
+	**********
+	# Actualización a versión 3.0.1
+	# Actualización Ion_Auth_2
