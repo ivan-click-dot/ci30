@@ -96,6 +96,7 @@ Texto de prueba para probar
 	echo "<br>Fecha actual: " . date("d/m/Y H:i:s", time());
 	echo "<br>Fecha actual 2: " . unix_to_human(time());
 	echo "<br>Caca: " . mifuncion(">>>><<<<<áeeeiiiííííóóóooo");
+	echo "<br>Version: " . CI_VERSION; 
 
 ?>
 <br>
