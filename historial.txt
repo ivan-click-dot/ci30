@@ -54,3 +54,8 @@
 	**********
 	# Actualización a versión 3.0.1
 	# Actualización Ion_Auth_2
+
+	16/10/2015
+	**********
+	# Actualizacion Ion_Auth_2
+	# Actualización CI a versión 3.0.2
