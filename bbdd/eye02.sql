@@ -121,7 +121,12 @@ INSERT INTO `companies` (`id`, `name`, `description`, `active`) VALUES
 -- Volcando estructura para tabla eye02.customers
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE IF NOT EXISTS `customers` (
-  `id` mediumint(8) unsigned NOT NULL
+  `id` mediumint(8) unsigned zerofill NOT NULL,
+  `id_company` tinyint(3) unsigned zerofill NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  KEY `FK_customers_companies` (`id_company`),
+  CONSTRAINT `FK_customers_companies` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla eye02.customers: ~0 rows (aproximadamente)
@@ -133,7 +138,10 @@ DELETE FROM `customers`;
 -- Volcando estructura para tabla eye02.customers_address
 DROP TABLE IF EXISTS `customers_address`;
 CREATE TABLE IF NOT EXISTS `customers_address` (
-  `id` int(10) unsigned NOT NULL
+  `id` int(10) unsigned NOT NULL,
+  `id_customer` mediumint(8) unsigned zerofill NOT NULL,
+  KEY `FK_customers_address_customers` (`id_customer`),
+  CONSTRAINT `FK_customers_address_customers` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla eye02.customers_address: ~0 rows (aproximadamente)
