@@ -64,7 +64,7 @@ if(! defined('ENVIRONMENT') )
 		case 'test.yoursite.tld':
 			define('ENVIRONMENT', 'testing');
 		break;
-		default :
+		default:
 			define('ENVIRONMENT', 'development');
 		break;
 	}
