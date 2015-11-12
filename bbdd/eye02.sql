@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   KEY `ci_sessions_timestamp` (`timestamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla eye02.ci_sessions: ~63 rows (aproximadamente)
+-- Volcando datos para la tabla eye02.ci_sessions: ~64 rows (aproximadamente)
 DELETE FROM `ci_sessions`;
 /*!40000 ALTER TABLE `ci_sessions` DISABLE KEYS */;
 INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
@@ -50,6 +50,7 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 	('433a435291b5e28a0e71c2e4c2f7aef200c60a25', '127.0.0.1', 1435675377, _binary 0x5F5F63695F6C6173745F726567656E65726174657C693A313433353637353337373B),
 	('4423efadfaa52da43a360b361a75f904347a0cf3', '127.0.0.1', 1440579031, _binary 0x5F5F63695F6C6173745F726567656E65726174657C693A313434303537383737333B),
 	('4446726dfe410a82dc232b2ffc1a3d47673d0fb2', '127.0.0.1', 1435906621, _binary 0x5F5F63695F6C6173745F726567656E65726174657C693A313433353930363632313B),
+	('4865d8c4ef3ee30052780093a67e0e30544c1b01', '127.0.0.1', 1447318992, _binary 0x5F5F63695F6C6173745F726567656E65726174657C693A313434373331383939323B),
 	('4d521673cfd1eb6ecfa3d3c368ce04463c0e351f', '127.0.0.1', 1435742717, _binary 0x5F5F63695F6C6173745F726567656E65726174657C693A313433353734323631383B),
 	('4fd23be8b3c256c9068d74fc30b0c570a2092d96', '127.0.0.1', 1435906620, _binary 0x5F5F63695F6C6173745F726567656E65726174657C693A313433353930363632303B),
 	('502a5d3b820d3ec4c3689893e3908a3f695f7b0c', '127.0.0.1', 1435744240, _binary 0x5F5F63695F6C6173745F726567656E65726174657C693A313433353734343133383B),
@@ -100,7 +101,7 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 -- Volcando estructura para tabla eye02.companies
 DROP TABLE IF EXISTS `companies`;
 CREATE TABLE IF NOT EXISTS `companies` (
-  `id` tinyint(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `id` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   `description` varchar(300) DEFAULT NULL,
   `active` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -112,65 +113,78 @@ CREATE TABLE IF NOT EXISTS `companies` (
 DELETE FROM `companies`;
 /*!40000 ALTER TABLE `companies` DISABLE KEYS */;
 INSERT INTO `companies` (`id`, `name`, `description`, `active`) VALUES
-	(001, 'Mi empresa 1', NULL, 1),
-	(002, 'Mi empresa 2', NULL, 1),
-	(003, 'Mi empresa 3', NULL, 1);
+	(1, 'Mi empresa 1', NULL, 1),
+	(2, 'Mi empresa 2', NULL, 1),
+	(3, 'Mi empresa 3', NULL, 1);
 /*!40000 ALTER TABLE `companies` ENABLE KEYS */;
 
 
 -- Volcando estructura para tabla eye02.customers
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE IF NOT EXISTS `customers` (
-  `id` mediumint(8) unsigned zerofill NOT NULL,
-  `id_company` tinyint(3) unsigned zerofill NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_company` tinyint(3) unsigned NOT NULL,
+  `first_name` varchar(150) DEFAULT NULL,
+  `last_name` varchar(300) DEFAULT NULL,
+  `nif` varchar(30) NOT NULL,
+  `email` varchar(150) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `id_id_company` (`id`,`id_company`),
   KEY `FK_customers_companies` (`id_company`),
   CONSTRAINT `FK_customers_companies` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla eye02.customers: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla eye02.customers: ~3 rows (aproximadamente)
 DELETE FROM `customers`;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+INSERT INTO `customers` (`id`, `id_company`, `first_name`, `last_name`, `nif`, `email`) VALUES
+	(1, 1, NULL, NULL, '', NULL),
+	(2, 1, NULL, NULL, '', NULL),
+	(3, 1, NULL, NULL, '', NULL);
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 
 
 -- Volcando estructura para tabla eye02.customers_address
 DROP TABLE IF EXISTS `customers_address`;
 CREATE TABLE IF NOT EXISTS `customers_address` (
-  `id` int(10) unsigned NOT NULL,
-  `id_customer` mediumint(8) unsigned zerofill NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_customer` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_id_customer` (`id`,`id_customer`),
   KEY `FK_customers_address_customers` (`id_customer`),
   CONSTRAINT `FK_customers_address_customers` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla eye02.customers_address: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla eye02.customers_address: ~2 rows (aproximadamente)
 DELETE FROM `customers_address`;
 /*!40000 ALTER TABLE `customers_address` DISABLE KEYS */;
+INSERT INTO `customers_address` (`id`, `id_customer`) VALUES
+	(1, 1),
+	(2, 1);
 /*!40000 ALTER TABLE `customers_address` ENABLE KEYS */;
 
 
 -- Volcando estructura para tabla eye02.departments
 DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
-  `id` tinyint(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `id_company` tinyint(3) unsigned zerofill NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_company` tinyint(3) unsigned NOT NULL,
   `name` varchar(150) NOT NULL,
   `description` varchar(300) DEFAULT NULL,
   `active` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`,`id_company`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `id_id_company` (`id`,`id_company`),
   KEY `FK_departments_companies` (`id_company`),
   CONSTRAINT `FK_departments_companies` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla eye02.departments: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla eye02.departments: ~3 rows (aproximadamente)
 DELETE FROM `departments`;
 /*!40000 ALTER TABLE `departments` DISABLE KEYS */;
 INSERT INTO `departments` (`id`, `id_company`, `name`, `description`, `active`) VALUES
-	(008, 001, 'Administración', NULL, 1),
-	(009, 001, 'Logística', NULL, 1),
-	(010, 002, 'Dirección', NULL, 1);
+	(11, 1, 'Administración', NULL, 1),
+	(12, 1, 'Logística', NULL, 1),
+	(13, 2, 'Dirección', NULL, 1);
 /*!40000 ALTER TABLE `departments` ENABLE KEYS */;
 
 
@@ -197,9 +211,9 @@ INSERT INTO `groups` (`id`, `name`, `description`, `active`) VALUES
 -- Volcando estructura para tabla eye02.users
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` smallint(5) unsigned zerofill NOT NULL AUTO_INCREMENT,
-  `id_company` tinyint(3) unsigned zerofill NOT NULL,
-  `id_department` tinyint(3) unsigned zerofill NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_company` tinyint(3) unsigned NOT NULL,
+  `id_department` int(11) unsigned NOT NULL,
   `first_name` varchar(150) NOT NULL,
   `last_name` varchar(300) NOT NULL,
   `nif` varchar(30) NOT NULL,
@@ -215,40 +229,42 @@ CREATE TABLE IF NOT EXISTS `users` (
   `activation_code` varchar(40) DEFAULT NULL,
   `ip_address` varchar(20) DEFAULT NULL,
   `active` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`,`id_company`,`id_department`),
+  PRIMARY KEY (`id`),
   UNIQUE KEY `id_id_company_id_department` (`id`,`id_company`,`id_department`),
-  KEY `FK_usuarios_empresas` (`id_company`),
+  KEY `FK_users_companies` (`id_company`),
   KEY `FK_users_departments` (`id_department`),
-  CONSTRAINT `FK_users_companies` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`),
-  CONSTRAINT `FK_users_departments` FOREIGN KEY (`id_department`) REFERENCES `departments` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  CONSTRAINT `FK_users_departments` FOREIGN KEY (`id_department`) REFERENCES `departments` (`id`),
+  CONSTRAINT `FK_users_companies` FOREIGN KEY (`id_company`) REFERENCES `companies` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla eye02.users: ~2 rows (aproximadamente)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `id_company`, `id_department`, `first_name`, `last_name`, `nif`, `email`, `username`, `password`, `created_on`, `last_login`, `salt`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `activation_code`, `ip_address`, `active`) VALUES
-	(00004, 001, 008, 'Pepe', 'Gáfez', '11223344B', 'pepe@company.com', 'pepe', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 1435221351, 1447236264, NULL, 'vFilAz41e5duH1v-6usdaO37bccdbab8d44258e6', 1435744101, 'h9TFdlu8F8vYlHQZhMZfle', NULL, NULL, 1),
-	(00005, 001, 008, 'Luis', 'Plómez', '22334455Y', 'luis@company.com', 'luis', '$2y$08$1WP9fOv.8ahDstSe21BqmO5L8JPA6LQeWgRduqu60Y8ojLPdovnfa', 1435221351, 1447236321, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+	(6, 1, 11, 'Pepe', 'Gáfez', '11223344B', 'pepe@company.com', 'pepe', '$2a$07$SeBknntpZror9uyftVopmu61qg0ms8Qv1yV6FG.kQOSM.9QhmTo36', 1435221351, 1447318951, NULL, 'vFilAz41e5duH1v-6usdaO37bccdbab8d44258e6', 1435744101, 'h9TFdlu8F8vYlHQZhMZfle', NULL, NULL, 1),
+	(7, 2, 12, 'Luis', 'Plómez', '22334455Y', 'luis@company.com', 'luis', '$2y$08$1WP9fOv.8ahDstSe21BqmO5L8JPA6LQeWgRduqu60Y8ojLPdovnfa', 1435221351, 1447318976, NULL, NULL, NULL, NULL, NULL, NULL, 1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 
 -- Volcando estructura para tabla eye02.users_groups
 DROP TABLE IF EXISTS `users_groups`;
 CREATE TABLE IF NOT EXISTS `users_groups` (
-  `id_user` smallint(5) unsigned zerofill NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) unsigned NOT NULL,
   `id_group` tinyint(3) unsigned NOT NULL,
-  UNIQUE KEY `id_usuario_id_grupo` (`id_user`,`id_group`),
-  KEY `FK_usuarios_grupos_grupos` (`id_group`),
-  CONSTRAINT `FK_users_groups_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`),
-  CONSTRAINT `FK_usuarios_grupos_grupos` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_user_id_group` (`id_user`,`id_group`),
+  KEY `FK_users_groups_groups` (`id_group`),
+  CONSTRAINT `FK_users_groups_groups` FOREIGN KEY (`id_group`) REFERENCES `groups` (`id`),
+  CONSTRAINT `FK_users_groups_users` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla eye02.users_groups: ~2 rows (aproximadamente)
 DELETE FROM `users_groups`;
 /*!40000 ALTER TABLE `users_groups` DISABLE KEYS */;
-INSERT INTO `users_groups` (`id_user`, `id_group`) VALUES
-	(00004, 1),
-	(00005, 2);
+INSERT INTO `users_groups` (`id`, `id_user`, `id_group`) VALUES
+	(1, 6, 1),
+	(2, 7, 2);
 /*!40000 ALTER TABLE `users_groups` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
