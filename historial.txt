@@ -63,3 +63,7 @@
 	11/11/2015
 	**********
 	# Actualización CI a versión 3.0.3
+
+	29/12/2015
+	**********
+	# Redirigir a /admin una vez se loguea un usuario.
