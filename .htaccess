@@ -4,3 +4,6 @@ RewriteCond $1 !^(index\\.php|resources|assets|robots\\.txt)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+
+RewriteEngine On
+RewriteRule prueba.html http://www.google.es [R]
