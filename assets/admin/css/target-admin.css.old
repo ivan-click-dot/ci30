@@ -993,7 +993,7 @@ input[type="checkbox"] {
   width: 100%;
   padding: 5px 0;
   text-align: center;
-  background: #e89d00;
+  background: #16a085;
   border-bottom: 10px solid #fff;
 }
 .mainbar .mainbar-nav {
@@ -1008,14 +1008,14 @@ input[type="checkbox"] {
 }
 .mainbar .mainbar-nav > li > a:hover,
 .mainbar .mainbar-nav > li > a:focus {
-  background: #AE7600;
+  background: #148e76;
 }
 .mainbar .mainbar-nav > .open > a,
 .mainbar .mainbar-nav > .open > a:hover,
 .mainbar .mainbar-nav > .open > a:focus {
   color: #fff;
-  background: #AE7600;
-  border-color: #AE7600;
+  background: #159c81;
+  border-color: #148e76;
 }
 .mainbar .mainbar-toggle {
   display: block;
@@ -1042,8 +1042,8 @@ input[type="checkbox"] {
     font-size: 12px;
     font-weight: 400;
     text-align: center;
-    border: 1px solid transparent;    
-    text-shadow: 1px 1px 2px #000;
+    border: 1px solid transparent;
+    text-shadow: 1px 1px 2px #3E8851;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -1057,14 +1057,14 @@ input[type="checkbox"] {
   }
   .mainbar .mainbar-nav > li > a:hover,
   .mainbar .mainbar-nav > li > a:focus {
-    border-color: #AE7600;
-    background: #AE7600;
+    border-color: #148e76;
+    background: #159c81;
   }
   .mainbar .mainbar-nav > .active > a,
   .mainbar .mainbar-nav > .active > a:hover,
   .mainbar .mainbar-nav > .active > a:focus {
     color: #fff;
-    background: #AE7600;
+    background: #148e76;
     border-color: transparent;
   }
   .mainbar .mainbar-nav > .active > a::after,
@@ -1075,7 +1075,7 @@ input[type="checkbox"] {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid transparent;
-    border-top-color: #AE7600;
+    border-top-color: #148e76;
     position: absolute;
     top: 100%;
     left: 50%;
@@ -1164,7 +1164,7 @@ input[type="checkbox"] {
 }
 .content-header-title {
   margin-top: 0;
-  color: #e89d00;
+  color: #16a085;
   font-size: 24px;
 }
 .content-header-subtitle {
@@ -1817,8 +1817,8 @@ input[type="checkbox"] {
   width: 45px;
   height: 45px;
   display: block;
-  background-color: #e89d00;
-  background-color: rgba(232, 157, 0, 0.3);
+  background-color: #16a085;
+  background-color: rgba(22, 160, 133, 0.3);
   font-size: 16px;
   text-align: center;
   line-height: 45px;
@@ -1831,8 +1831,8 @@ input[type="checkbox"] {
 }
 #back-to-top:hover {
   text-decoration: none;
-  background-color: #e89d00;
-  background-color: rgba(232, 157, 0, 0.85);
+  background-color: #16a085;
+  background-color: rgba(22, 160, 133, 0.85);
 }
 #back-to-top i {
   color: #fff;

@@ -93,3 +93,5 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('ASSETS_ADMIN_PATH')	OR define("ASSETS_ADMIN_PATH", "assets/admin");
 defined('ASSETS_PUBLIC_PATH')	OR define("ASSETS_PUBLIC_PATH", "assets/public");
 defined('RESOURCES_PATH')		OR define("RESOURCES_PATH", "resources");
+
+defined('PROJECT_NAME')			OR define("PROJECT_NAME", "CLICK-DOT Gestión Demo");

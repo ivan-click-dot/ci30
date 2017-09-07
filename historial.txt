@@ -76,3 +76,7 @@
 	**********
 	# Actualización CI a versión 3.1.5
 	# Prototipo de la pantalla de login
+
+	07/09/2017
+	**********
+	# Carga librería email en config.php

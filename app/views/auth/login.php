@@ -1,4 +1,4 @@
-<h1><?php echo lang('login_heading');?></h1>
+<!--<h1><?php echo lang('login_heading');?></h1>
 <p><?php echo lang('login_subheading');?></p>
 
 <div id="infoMessage"><?php echo $message;?></div>
@@ -25,7 +25,7 @@
 
 <?php echo form_close();?>
 
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>-->
 
 
 
@@ -35,7 +35,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-  <title>themelock.com - Login - Target Admin</title>
+  <title><?php echo PROJECT_NAME;?></title>
 
   <meta charset="utf-8">
   <meta name="description" content="">
@@ -79,13 +79,6 @@
 
     <div class="navbar-collapse collapse">
 
-      
-
-
-
-       
-        
-
       <ul class="nav navbar-nav navbar-right">   
 
         <li>
@@ -96,7 +89,6 @@
         </li> 
 
       </ul>
-       
 
     </div> <!--/.navbar-collapse -->
 
@@ -114,56 +106,51 @@
 
     <div class="account-body">
 
-      <h3 class="account-body-title">Welcome back to Target Admin.</h3>
+      <h3 class="account-body-title"><?php echo lang('auth_titulo_login')?></h3>
 
-      <h5 class="account-body-subtitle">Please sign in to get access.</h5>
+      <h5 class="account-body-subtitle">Please sign in to get access.</h5>      
 
-      <form class="form account-form" method="POST" action="./index.html">
+      <?php
+        echo form_open('auth/login', array(
+        'class' => 'form account-form', 
+        'method' => 'POST'
+      ));
+      ?>      
 
         <div class="form-group">
-          <label for="login-username" class="placeholder-hidden">Username</label>
-          <input type="text" class="form-control" id="login-username" placeholder="Username" tabindex="1">
-
-        </div> <!-- /.form-group -->
+          <label for="identity" class="placeholder-hidden"><?php echo lang('login_identity_label');?></label>
+          <input type="text" class="form-control" name="identity" id="identity" placeholder="<?php echo lang('login_identity_label');?>" tabindex="1">
+        </div> <!-- /.form-group -->       
 
         <div class="form-group">
-          <label for="login-password" class="placeholder-hidden">Password</label>
-          <input type="password" class="form-control" id="login-password" placeholder="Password" tabindex="2">
+          <label for="login-password" class="placeholder-hidden"><?php echo lang('login_password_label');?></label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="<?php echo lang('login_password_label');?>" tabindex="2">
         </div> <!-- /.form-group -->
 
         <div class="form-group clearfix">
           <div class="pull-left">         
             <label class="checkbox-inline">
-            <input type="checkbox" class="" value="" tabindex="3">Remember me
+            <input type="checkbox" class="" name="remember" value="1" id="remember" tabindex="3"><?php echo lang('login_remember_label');?>
             </label>
           </div>
 
           <div class="pull-right">
-            <a href="./account-forgot.html">Forgot Password?</a>
+            <a href="forgot_password"><?php echo lang('login_forgot_password');?></a>
           </div>
-        </div> <!-- /.form-group -->
+        </div> <!-- /.form-group -->        
 
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="4">
-            Signin &nbsp; <i class="fa fa-play-circle"></i>
+          <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="4" name="submit">
+            <?php echo lang('login_submit_btn')?> &nbsp; <i class="fa fa-play-circle"></i>
           </button>
         </div> <!-- /.form-group -->
 
-      </form>
+      <?php echo form_close();?>
 
 
-    </div> <!-- /.account-body -->
-
-    <div class="account-footer">
-      <p>
-      Don't have an account? &nbsp;
-      <a href="./account-signup.html" class="">Create an Account!</a>
-      </p>
-    </div> <!-- /.account-footer -->
+    </div> <!-- /.account-body -->    
 
   </div> <!-- /.account-wrapper -->
-
-
 
         
 
@@ -179,10 +166,6 @@
   
   <!-- Plugin JS -->
   <script src="<?php echo base_url(ASSETS_ADMIN_PATH); ?>/js/target-account.js"></script>
-
-  
-
-
   
 
 </body>

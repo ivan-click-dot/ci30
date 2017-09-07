@@ -26,9 +26,9 @@ $lang['error_csrf'] = 'Este formulario no pasó nuestras pruebas de seguridad.';
 // Login
 $lang['login_heading']         = 'Ingresar';
 $lang['login_subheading']      = 'Por favor, introduce tu email/usuario y contraseña.';
-$lang['login_identity_label']  = 'Email/Usuario:';
-$lang['login_password_label']  = 'Contraseña:';
-$lang['login_remember_label']  = 'Recuérdame:';
+$lang['login_identity_label']  = 'Email/Usuario';
+$lang['login_password_label']  = 'Contraseña';
+$lang['login_remember_label']  = 'Recordar';
 $lang['login_submit_btn']      = 'Ingresar';
 $lang['login_forgot_password'] = '¿Has olvidado tu contraseña?';
 
@@ -159,3 +159,6 @@ $lang['email_forgot_password_link']       = 'Restablecer Tu Contraseña';
 // New Password Email
 $lang['email_new_password_heading']    = 'Nueva contraseña para %s';
 $lang['email_new_password_subheading'] = 'Tu contraseña ha sido restablecida a: %s';
+
+// Personalizado
+$lang['auth_titulo_login'] = 'Bienvenido';
