@@ -162,3 +162,4 @@ $lang['email_new_password_subheading'] = 'Tu contraseña ha sido restablecida a:
 
 // Personalizado
 $lang['auth_titulo_login'] = 'Bienvenido';
+$lang['auth_subtitulo_login'] = 'Rellena tus datos para acceder.';

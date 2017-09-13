@@ -101,7 +101,8 @@ Texto de prueba para probar
 ?>
 <br>
 <a href="<?php echo base_url(RESOURCES_PATH); ?>/prueba.txt">fichero</a>
-
+<br>
+<a href="<?php echo base_url();?>admin">Panel de administración</a>
 
 </body>
 </html>

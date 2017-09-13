@@ -1,34 +1,4 @@
-<!--<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
-
-<div id="infoMessage"><?php echo $message;?></div>
-
-<?php echo form_open("auth/login");?>
-
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
-
-
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
-
-<?php echo form_close();?>
-
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>-->
-
-
-
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -108,7 +78,7 @@
 
       <h3 class="account-body-title"><?php echo lang('auth_titulo_login')?></h3>
 
-      <h5 class="account-body-subtitle">Please sign in to get access.</h5>      
+      <h5 class="account-body-subtitle"><?php echo lang('auth_subtitulo_login')?></h5>      
 
       <?php
         echo form_open('auth/login', array(

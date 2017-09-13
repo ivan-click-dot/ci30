@@ -145,3 +145,4 @@ $lang['reset_password_validation_new_password_confirm_label'] = 'Confirm New Pas
 
 // Personalizado
 $lang['auth_titulo_login'] = 'Welcome';
+$lang['auth_subtitulo_login'] = 'Please sign in to get access.';
