@@ -52,7 +52,7 @@
       <ul class="nav navbar-nav navbar-right">   
 
         <li>
-          <a href="javascript:;">
+          <a href="<?php echo base_url(); ?>">
             <i class="fa fa-angle-double-left"></i> 
             &nbsp;Back to Homepage
           </a>
