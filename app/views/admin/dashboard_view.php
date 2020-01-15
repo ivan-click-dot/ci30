@@ -564,7 +564,7 @@
       
 
       <div>
-        <h4 class="heading-inline">>>> themelock.com <<<  
+        <h4 class="heading-inline">  
         &nbsp;&nbsp;<small>For the week of Jun 15 - Jun 22, 2011</small>
         &nbsp;&nbsp;</h4>
 
